@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  sqlserver: 
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    environment:
+      - SQLSERVER_DB_NAME=MyDatabase
+      - SQLSERVER_USER=sa
+      - SQLSERVER_PASSWORD=YourStrong!Passw0rd
+    ports:
+      - "1433:1433"
+    networks:
+      - mynetwork
+  
+  networks:
+    mynetwork:
+  
+  backend:
+  
+  frontend:
+
+  volumes:
+    - sqlserver_data:/var/opt/mssql
